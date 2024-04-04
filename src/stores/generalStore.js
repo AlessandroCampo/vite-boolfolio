@@ -13,14 +13,17 @@ export const useGeneralStore = defineStore('generalStore', {
   },
   actions: {
     getProjects(page) {
+      if ((this.max_pages && page > this.max_pages) || page < 0) {
+        return
+      }
       let params = {
         page
       }
       axios.get('http://127.0.0.1:8000/api/projects', { params }).then(res => {
         console.log(res.data)
         this.projects_array = res.data.projects.data
-        this.current_page = res.data.current_page
-        this.max_pages = res.data.last_page
+        this.current_page = res.data.projects.current_page
+        this.max_pages = res.data.projects.last_page
       })
     }
   },
