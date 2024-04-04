@@ -25,7 +25,7 @@ const projects = ref(store.projects_array)
 
 
         <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <div class="project-card" v-for="(project, index) in store.projects_array" :key="project?.id">
+          <div class="project-card" v-for="(project) in store.projects_array" :key="project?.id">
 
             <div
               class="relative group overflow-hidden p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900 h-fit">
@@ -58,8 +58,8 @@ const projects = ref(store.projects_array)
                         stroke-width="2" d="m17 13l-5 5m0 0l-5-5m5 5V6"></path>
                     </svg>
                   </a>
-                  <a href="#"
-                    class="group flex items-center rounded-xl disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-gray-500/15 dark:active:bg-gray-500/10 size-8 justify-center">
+                  <a class="group flex items-center rounded-xl disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-gray-500/15 dark:active:bg-gray-500/10 size-8 justify-center"
+                    :href="project.github_link" target="_blank" v-show="project.github_link">
                     <span class="sr-only">Source Code</span>
                     <svg class="size-5" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                       <path fill="currentColor"
