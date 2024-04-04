@@ -13,7 +13,7 @@ export const useGeneralStore = defineStore('generalStore', {
     getProjects() {
       axios.get('http://127.0.0.1:8000/api/projects').then(res => {
         console.log(res.data)
-        this.projects_array = res.data
+        this.projects_array = res.data.projects
       })
     }
   },
