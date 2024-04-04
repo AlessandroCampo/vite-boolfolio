@@ -4,7 +4,7 @@ import { ref, onMounted } from 'vue'
 const store = useGeneralStore()
 
 onMounted(() => {
-  store.getProjects(2)
+  store.getProjects(1)
   console.log(store.projects_array)
   console.log(store.current_page)
 })
@@ -95,10 +95,12 @@ const projects = ref(store.projects_array)
             </a>
 
             <a aria-current="page"
-              class="relative z-10 inline-flex items-center bg-black px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
-              :class="count == store.current_page ? 'text-red-500' : ''" v-for="count in store.max_pages"
-              @click="store.getProjects(count)">{{
-            count }}</a>
+              class="relative z-10 inline-flex items-center  text-white px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
+              :class="count == store.current_page ? 'bg-blue-500' : ' bg-black'" v-for="count in store.max_pages"
+              :key="count" @click="store.getProjects(count)">
+              {{ count }}
+            </a>
+
 
             <a
               class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 cursor-pointer">
