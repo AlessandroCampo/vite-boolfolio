@@ -4,7 +4,7 @@ import { ref, onMounted } from 'vue'
 const store = useGeneralStore()
 
 onMounted(() => {
-  store.getProjects()
+  store.getProjects(2)
   console.log(store.projects_array)
 })
 
@@ -23,7 +23,7 @@ const projects = ref(store.projects_array)
           <p class="mt-6 text-gray-700 dark:text-gray-300">I for sure didnt steal this component.</p>
         </div>
         <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          <div class="project-card" v-for="(project, index) in store.projects_array" :key="project.id">
+          <div class="project-card" v-for="(project, index) in store.projects_array" :key="project?.id">
 
             <div
               class="relative group overflow-hidden p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900 h-fit">
