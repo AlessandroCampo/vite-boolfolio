@@ -2,6 +2,7 @@
 import { useGeneralStore } from '../stores/generalStore'
 import { ref, onMounted } from 'vue'
 import ProjectCard from '../components/ProjectCard.vue'
+import { router } from '@/router'
 const store = useGeneralStore()
 
 onMounted(() => {
@@ -9,6 +10,12 @@ onMounted(() => {
   console.log(store.projects_array)
   console.log(store.current_page)
 })
+
+const openProjectPage = function (project) {
+  console.log(project.id)
+  router.push({ name: 'project', params: { id: project?.id }, props: { project } })
+}
+
 
 const projects = ref(store.projects_array)
 </script>
@@ -27,7 +34,8 @@ const projects = ref(store.projects_array)
 
         <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
 
-          <ProjectCard v-for="(project) in store.projects_array" :key="project?.id" :project="project"></ProjectCard>
+          <ProjectCard v-for="(project) in store.projects_array" :key="project?.id" :project="project"
+            @click="openProjectPage(project)"></ProjectCard>
 
 
 
