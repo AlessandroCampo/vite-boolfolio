@@ -26,6 +26,7 @@ const projects = ref(store.projects_array)
       <div class="text-center">
 
         <h2 class="text-3xl text-gray-950 dark:text-white font-semibold">Projects by Aleks</h2>
+        <RouterLink to="/contactUs">Contact me</RouterLink>
         <p class="mt-6 text-gray-700 dark:text-gray-300">I for sure didnt steal this component.</p>
       </div>
 
